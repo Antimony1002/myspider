@@ -1,0 +1,43 @@
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://sbti.unun.dev/"
+resp = requests.get(url)
+encoding = "utf-8"
+
+sbti_list = {
+  "IMSB": "image/IMSB.png",
+  "BOSS": "image/BOSS.png",
+  "MUM": "image/MUM.png",
+  "FAKE": "image/FAKE.png",
+  "Dior-s": "image/Dior-s.jpg",
+  "DEAD": "image/DEAD.png",
+  "ZZZZ": "image/ZZZZ.png",
+  "GOGO": "image/GOGO.png",
+  "FUCK": "image/FUCK.png",
+  "CTRL": "image/CTRL.png",
+  "HHHH": "image/HHHH.png",
+  "SEXY": "image/SEXY.png",
+  "OJBK": "image/OJBK.png",
+  "JOKE-R": "image/JOKE-R.jpg",
+  "POOR": "image/POOR.png",
+  "OH-NO": "image/OH-NO.png",
+  "MONK": "image/MONK.png",
+  "SHIT": "image/SHIT.png",
+  "THAN-K": "image/THAN-K.png",
+  "MALO": "image/MALO.png",
+  "ATM-er": "image/ATM-er.png",
+  "THIN-K": "image/THIN-K.png",
+  "SOLO": "image/SOLO.png",
+  "LOVE-R": "image/LOVE-R.png",
+  "WOC!": "image/WOC.png",
+  "DRUNK": "image/DRUNK.png",
+  "IMFW": "image/IMFW.png"
+}
+
+for sbti in sbti_list:
+    pic_url = "https://sbti.unun.dev/" + sbti_list[sbti]
+    pic_resp = requests.get(pic_url)
+    with open(f"{sbti}.png", "wb") as f:
+        f.write(pic_resp.content)
+f.close()
